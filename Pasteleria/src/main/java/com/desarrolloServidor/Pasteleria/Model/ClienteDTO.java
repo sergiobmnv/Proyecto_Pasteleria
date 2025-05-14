@@ -9,10 +9,10 @@ public class ClienteDTO {
 	private String apellidos;
 	private String direccion;
 	private String contrasenia;
-	private Date fecha_nac;
+	private Date fechanac;
 	private String producto;
 	private String email;
-	private String numero_telefono;
+	private String telefono;
 	private Double precio_pedido;
 	private String observacion;
 	private String estado;
@@ -24,7 +24,7 @@ public class ClienteDTO {
 
 
 	public ClienteDTO(int id_cliente, String nombre, String apellidos, String direccion, String contrasenia,
-			Date fecha_nac, String producto, String email, String numero_telefono, Double precio_pedido,
+			Date fechanac, String producto, String email, String telefono, Double precio_pedido,
 			String observacion, String estado) {
 		
 		this.id_cliente = id_cliente;
@@ -32,10 +32,10 @@ public class ClienteDTO {
 		this.apellidos = apellidos;
 		this.direccion = direccion;
 		this.contrasenia = contrasenia;
-		this.fecha_nac = fecha_nac;
+		this.fechanac = fechanac;
 		this.producto = producto;
 		this.email = email;
-		this.numero_telefono = numero_telefono;
+		this.telefono = telefono;
 		this.precio_pedido = precio_pedido;
 		this.observacion = observacion;
 		this.estado = estado;
@@ -93,13 +93,13 @@ public class ClienteDTO {
 	}
 
 
-	public Date getFecha_nac() {
-		return fecha_nac;
+	public Date getFechanac() {
+		return fechanac;
 	}
 
 
-	public void setFecha_nac(Date fecha_nac) {
-		this.fecha_nac = fecha_nac;
+	public void setFechanac(Date fechanac) {
+		this.fechanac = fechanac;
 	}
 
 
@@ -123,13 +123,13 @@ public class ClienteDTO {
 	}
 
 
-	public String getNumero_telefono() {
-		return numero_telefono;
+	public String getTelefono() {
+		return telefono;
 	}
 
 
-	public void setNumero_telefono(String numero_telefono) {
-		this.numero_telefono = numero_telefono;
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
 
@@ -165,8 +165,8 @@ public class ClienteDTO {
 	@Override
 	public String toString() {
 		return "ClienteDTO [id_cliente=" + id_cliente + ", nombre=" + nombre + ", apellidos=" + apellidos
-				+ ", direccion=" + direccion + ", contrasenia=" + contrasenia + ", fecha_nac=" + fecha_nac
-				+ ", producto=" + producto + ", email=" + email + ", numero_telefono=" + numero_telefono
+				+ ", direccion=" + direccion + ", contrasenia=" + contrasenia + ", fecha_nac=" + fechanac
+				+ ", producto=" + producto + ", email=" + email + ", numero_telefono=" + telefono
 				+ ", precio_pedido=" + precio_pedido + ", observacion=" + observacion + ", estado=" + estado + "]";
 	}
 }

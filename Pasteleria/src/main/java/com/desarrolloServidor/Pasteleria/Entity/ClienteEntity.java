@@ -32,7 +32,7 @@ public class ClienteEntity {
     private String contrasenia;
 
     @Column(name = "FECHA_NAC", nullable = false)
-    private LocalDate fechaNac;
+    private LocalDate fechanac;
 
     @Column(name = "PRODUCTO", nullable = false, length = 45)
     private String producto;
@@ -96,11 +96,11 @@ public class ClienteEntity {
 	}
 
 	public LocalDate getFechaNac() {
-		return fechaNac;
+		return fechanac;
 	}
 
-	public void setFechaNac(LocalDate fechaNac) {
-		this.fechaNac = fechaNac;
+	public void setFechanac(LocalDate fechanac) {
+		this.fechanac = fechanac;
 	}
 
 	public String getProducto() {

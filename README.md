@@ -3,11 +3,11 @@ Aquí está el orden más lógico y práctico para implementar la aplicación us
 
 🔹 1. Base del Proyecto (lo tienes avanzado)
 
-    [] Estructura de paquetes (controller, entity, dto, repository, service, serviceImplement)
+    [❎] Estructura de paquetes (controller, entity, dto, repository, service, serviceImplement)
 
-    [] Clases Entity y DTO iniciales
+    [❎] Clases Entity y DTO iniciales
 
-    [] Archivo application.properties configurado con tu base de datos
+    [❎] Archivo application.properties configurado con tu base de datos
 
     [] Control de seguridad con inicio de sesión (más adelante)
 
@@ -15,7 +15,7 @@ Aquí está el orden más lógico y práctico para implementar la aplicación us
 
 Entidades:
 
-    [] Cliente: nombre, apellidos, dirección, teléfono, email, contraseña
+    [❎] Cliente: nombre, apellidos, dirección, teléfono, email, contraseña
 
 Funcionalidad:
 
