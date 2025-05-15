@@ -10,14 +10,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "Empleado")
-public class EmpleadoEntity {
+@Table(name = "EMPLEADO")
+public class Empleado {
 
-	
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_EMPLEADO", nullable = false)
-    private Integer idEmpleado;
+    @Column(name = "ID_EMPLEADO")
+    private Long id;
 
     @Column(name = "NOMBRE", nullable = false, length = 45)
     private String nombre;
@@ -37,15 +36,25 @@ public class EmpleadoEntity {
     @Column(name = "FECHA_SALIDA", nullable = false)
     private LocalDateTime fechaSalida;
 
-    
-// Getters y Setters.
-    
-	public Integer getIdEmpleado() {
-		return idEmpleado;
+    // Campos nuevos para login
+    @Column(name = "USERNAME", nullable = false, unique = true, length = 45)
+    private String username;
+
+    @Column(name = "PASSWORD", nullable = false, length = 255)
+    private String password;
+
+    @Column(name = "ROL", nullable = false, length = 20)
+    private String rol;
+
+    // Constructor vacío
+    public Empleado() {}
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdEmpleado(Integer idEmpleado) {
-		this.idEmpleado = idEmpleado;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
@@ -94,5 +103,29 @@ public class EmpleadoEntity {
 
 	public void setFechaSalida(LocalDateTime fechaSalida) {
 		this.fechaSalida = fechaSalida;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
 	}
 }
