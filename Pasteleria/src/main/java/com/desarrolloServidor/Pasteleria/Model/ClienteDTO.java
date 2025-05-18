@@ -1,6 +1,6 @@
 package com.desarrolloServidor.Pasteleria.Model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class ClienteDTO {
 
@@ -9,7 +9,7 @@ public class ClienteDTO {
 	private String apellidos;
 	private String direccion;
 	private String contrasenia;
-	private Date fechanac;
+	private LocalDate fechanac;
 	private String producto;
 	private String email;
 	private String telefono;
@@ -24,7 +24,7 @@ public class ClienteDTO {
 
 
 	public ClienteDTO(int id_cliente, String nombre, String apellidos, String direccion, String contrasenia,
-			Date fechanac, String producto, String email, String telefono, Double precio_pedido,
+			LocalDate fechanac, String producto, String email, String telefono, Double precio_pedido,
 			String observacion, String estado) {
 		
 		this.id_cliente = id_cliente;
@@ -93,12 +93,12 @@ public class ClienteDTO {
 	}
 
 
-	public Date getFechanac() {
+	public LocalDate getFechanac() {
 		return fechanac;
 	}
 
 
-	public void setFechanac(Date fechanac) {
+	public void setFechanac(LocalDate fechanac) {
 		this.fechanac = fechanac;
 	}
 

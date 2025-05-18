@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8" />
     <title>Registro de Cliente | Dulce Sabor</title>
@@ -11,25 +12,32 @@
             margin-bottom: 0.15rem;
             font-weight: 600;
         }
+
         input.form-control-sm {
             padding: 0.25rem 0.5rem;
             font-size: 0.8rem;
         }
+
         .card {
             max-width: 400px;
             width: 100%;
             padding: 1rem 1.25rem;
         }
+
         .form-container {
-            max-height: 100vh; /* Ajustamos altura máxima para evitar scroll */
-            overflow: hidden; /* Quitamos scroll interno */
+            max-height: 100vh;
+            /* Ajustamos altura máxima para evitar scroll */
+            overflow: hidden;
+            /* Quitamos scroll interno */
         }
+
         /* Reducimos margen entre campos */
         .mb-2 {
             margin-bottom: 0.3rem !important;
         }
     </style>
 </head>
+
 <body class="bg-warning-subtle d-flex justify-content-center align-items-center min-vh-100">
 
     <div class="card shadow-lg form-container">
@@ -78,6 +86,10 @@
                 <button type="submit" class="btn btn-danger btn-sm">Registrarse</button>
             </div>
 
+            <div class="d-grid mt-2">
+                <a href="/" class="btn btn-outline-secondary btn-sm">Volver al Inicio</a>
+            </div>
+
             <div th:if="${param.exito}" class="alert alert-success mt-3 mb-0 py-2 px-3 small text-center">
                 Registro exitoso.
             </div>
@@ -85,4 +97,5 @@
     </div>
 
 </body>
+
 </html>

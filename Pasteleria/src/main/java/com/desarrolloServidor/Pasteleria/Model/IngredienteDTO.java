@@ -1,10 +1,12 @@
 package com.desarrolloServidor.Pasteleria.Model;
 
+import java.math.BigDecimal;
+
 public class IngredienteDTO {
 
 	private int id_ingrediente;
 	private String nombre;
-	private Double precio;
+	private BigDecimal precio;
 	private int stock;
 	private String fabricante;
 	
@@ -14,7 +16,7 @@ public class IngredienteDTO {
 	}
 
 
-	public IngredienteDTO(int id_ingrediente, String nombre, Double precio, int stock, String fabricante) {
+	public IngredienteDTO(int id_ingrediente, String nombre, BigDecimal precio, int stock, String fabricante) {
 		
 		this.id_ingrediente = id_ingrediente;
 		this.nombre = nombre;
@@ -44,12 +46,12 @@ public class IngredienteDTO {
 	}
 
 
-	public Double getPrecio() {
+	public BigDecimal getPrecio() {
 		return precio;
 	}
 
 
-	public void setPrecio(Double precio) {
+	public void setPrecio(BigDecimal precio) {
 		this.precio = precio;
 	}
 
