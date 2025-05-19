@@ -46,7 +46,7 @@
             <h5 class="fw-bold text-secondary mb-1">Registro de Cliente</h5>
         </div>
 
-        <form th:action="@{/clientes/registro}" th:object="${cliente}" method="post" novalidate>
+        <form th:action="@{/clientes/guardar}" th:object="${cliente}" method="post" novalidate>
             <div class="mb-2">
                 <label class="form-label">Nombre</label>
                 <input type="text" th:field="*{nombre}" class="form-control form-control-sm" required />
@@ -88,6 +88,10 @@
 
             <div class="d-grid mt-2">
                 <a href="/" class="btn btn-outline-secondary btn-sm">Volver al Inicio</a>
+            </div>
+
+            <div class="d-grid mt-2">
+                <a href="/clientes/mostrar" class="btn btn-outline-secondary btn-sm">Ver lista de clientes</a>
             </div>
 
             <div th:if="${param.exito}" class="alert alert-success mt-3 mb-0 py-2 px-3 small text-center">

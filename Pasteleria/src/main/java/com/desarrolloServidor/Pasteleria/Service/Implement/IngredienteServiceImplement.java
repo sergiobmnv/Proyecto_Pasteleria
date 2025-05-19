@@ -25,6 +25,7 @@ public class IngredienteServiceImplement implements IngredienteService {
         dto.setPrecio(entity.getPrecio());
         dto.setStock(entity.getStock());
         dto.setFabricante(entity.getFabricante());
+        
         return dto;
     }
 

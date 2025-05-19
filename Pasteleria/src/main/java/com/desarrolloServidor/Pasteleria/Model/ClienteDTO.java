@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class ClienteDTO {
 
-	private int id_cliente;
+	private Integer id_cliente;
 	private String nombre;
 	private String apellidos;
 	private String direccion;
@@ -15,17 +15,15 @@ public class ClienteDTO {
 	private String telefono;
 	private Double precio_pedido;
 	private String observacion;
-	private String estado;
-	
 	
 	public ClienteDTO() {
 		
 	}
 
 
-	public ClienteDTO(int id_cliente, String nombre, String apellidos, String direccion, String contrasenia,
+	public ClienteDTO(Integer id_cliente, String nombre, String apellidos, String direccion, String contrasenia,
 			LocalDate fechanac, String producto, String email, String telefono, Double precio_pedido,
-			String observacion, String estado) {
+			String observacion) {
 		
 		this.id_cliente = id_cliente;
 		this.nombre = nombre;
@@ -38,17 +36,16 @@ public class ClienteDTO {
 		this.telefono = telefono;
 		this.precio_pedido = precio_pedido;
 		this.observacion = observacion;
-		this.estado = estado;
 	}
 
 //Getters y Setters.
 	
-	public int getId_cliente() {
+	public Integer getId_cliente() {
 		return id_cliente;
 	}
 
 
-	public void setId_cliente(int id_cliente) {
+	public void setId_cliente(Integer id_cliente) {
 		this.id_cliente = id_cliente;
 	}
 
@@ -152,21 +149,11 @@ public class ClienteDTO {
 		this.observacion = observacion;
 	}
 
-
-	public String getEstado() {
-		return estado;
-	}
-
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
 	@Override
 	public String toString() {
 		return "ClienteDTO [id_cliente=" + id_cliente + ", nombre=" + nombre + ", apellidos=" + apellidos
 				+ ", direccion=" + direccion + ", contrasenia=" + contrasenia + ", fecha_nac=" + fechanac
 				+ ", producto=" + producto + ", email=" + email + ", numero_telefono=" + telefono
-				+ ", precio_pedido=" + precio_pedido + ", observacion=" + observacion + ", estado=" + estado + "]";
+				+ ", precio_pedido=" + precio_pedido + ", observacion=" + observacion + "]";
 	}
 }

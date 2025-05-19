@@ -34,7 +34,7 @@ public class ClienteEntity {
     @Column(name = "FECHA_NAC", nullable = false)
     private LocalDate fechanac;
 
-    @Column(name = "PRODUCTO", nullable = false, length = 45)
+    @Column(name = "PRODUCTO", length = 45)
     private String producto;
 
     @Column(name = "EMAIL", nullable = false, length = 45)
@@ -48,9 +48,6 @@ public class ClienteEntity {
 
     @Column(name = "OBSERVACIONES", length = 45)
     private String observaciones;
-
-    @Column(name = "ESTADO", nullable = false, length = 45)
-    private String estado;
 
     
  // Getters y Setters
@@ -141,13 +138,5 @@ public class ClienteEntity {
 
 	public void setObservaciones(String observaciones) {
 		this.observaciones = observaciones;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
 	}
 }

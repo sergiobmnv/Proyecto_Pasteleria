@@ -11,36 +11,44 @@
     <div class="text-center mb-4">
         <h3 class="text-danger fw-bold">Clientes Registrados</h3>
         <a href="/" class="btn btn-outline-secondary btn-sm mt-2">Volver al Inicio</a>
+        <a href="/clientes/registro" class="btn btn-success btn-sm mt-2 ms-2">Agregar Cliente</a>
     </div>
 
-    <table class="table table-bordered table-hover table-sm">
-        <thead class="table-warning text-center">
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Email</th>
-                <th>Teléfono</th>
-                <th>Fecha Nac.</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody th:each="cliente : ${clientes}">
-            <tr>
-                <td th:text="${cliente.id_cliente}"></td>
-                <td th:text="${cliente.nombre}"></td>
-                <td th:text="${cliente.apellidos}"></td>
-                <td th:text="${cliente.email}"></td>
-                <td th:text="${cliente.telefono}"></td>
-                <td th:text="${cliente.fechanac}"></td>
-                <td class="text-center">
-                    <a th:href="@{'/clientes/editar/' + ${cliente.id}}" class="btn btn-sm btn-primary me-1">Editar</a>
-                    <a th:href="@{'/clientes/eliminar/' + ${cliente.id}}" class="btn btn-sm btn-danger" 
-                       onclick="return confirm('¿Estás seguro de eliminar este cliente?')">Eliminar</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <!-- Si hay clientes, mostrar la tabla -->
+    <div th:if="${clientes != null and !clientes.isEmpty()}">
+        <table class="table table-bordered table-hover table-sm">
+            <thead class="table-warning text-center">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Fecha Nac.</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody th:each="cliente : ${clientes}">
+                <tr>
+                    <td th:text="${cliente.id_cliente}"></td>
+                    <td th:text="${cliente.nombre}"></td>
+                    <td th:text="${cliente.apellidos}"></td>
+                    <td th:text="${cliente.email}"></td>
+                    <td th:text="${cliente.telefono}"></td>
+                    <td th:text="${cliente.fechanac}"></td>
+                    <td class="text-center">
+                        <a th:href="@{'/clientes/eliminar/' + ${cliente.id_cliente}}" class="btn btn-sm btn-danger"
+                           onclick="return confirm('¿Estás seguro de eliminar este cliente?')">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Si la lista está vacía -->
+    <div th:if="${clientes == null or clientes.isEmpty()}" class="alert alert-info text-center">
+        No hay clientes registrados aún.
+    </div>
 </div>
 
 </body>
