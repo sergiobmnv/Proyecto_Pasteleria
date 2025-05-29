@@ -19,7 +19,7 @@ Entidades:
 
 Funcionalidad:
 
-    [] Registro de clientes desde la web
+    [❎] Registro de clientes desde la web
 
     [] Listado de clientes (solo admins/trabajadores)
 
@@ -37,9 +37,9 @@ Flujo que desarrollaremos:
 
 ✅ ClienteController
 
-    [] Registro de clientes (formulario Thymeleaf)
+    [❎] Registro de clientes (formulario Thymeleaf)
 
-    [] Validaciones en formulario
+    [❎] Validaciones en formulario
 
     [] Inicio de sesión de clientes (más adelante)
 
@@ -47,7 +47,7 @@ Flujo que desarrollaremos:
 
 Entidades:
 
-    [] Producto: nombre, descripción, precio, stock, categoría, imagen
+    [] Producto: nombre, descripción, precio, stock, categoría
 
 Funcionalidad:
 
@@ -104,21 +104,3 @@ Funcionalidad:
     [] Login y permisos
 
     [] Registro diario de horas
-
-🔹 7. Seguridad (Spring Security)
-
-    [] Inicio de sesión para clientes, empleados y admin
-
-    [] Roles y permisos según usuario
-
-    [] Protección de rutas
-
-🔹 8. Extras
-    
-    [] Envío de correos (al hacer pedido)
-
-    [] Generación de estadísticas y PDFs
-
-    [] Diseño responsivo con Thymeleaf + Bootstrap
-
-    [] Imágenes almacenadas en la base de datos

@@ -20,7 +20,6 @@ public class ClienteDTO {
 		
 	}
 
-
 	public ClienteDTO(Integer id_cliente, String nombre, String apellidos, String direccion, String contrasenia,
 			LocalDate fechanac, String producto, String email, String telefono, Double precio_pedido,
 			String observacion) {

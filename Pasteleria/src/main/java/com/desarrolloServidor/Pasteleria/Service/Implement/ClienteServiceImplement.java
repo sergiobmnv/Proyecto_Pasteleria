@@ -79,7 +79,7 @@ public class ClienteServiceImplement implements ClienteService {
         Optional<ClienteEntity> clienteOpt = clienteRepository.findById(id);
 
         if (!clienteOpt.isPresent()) {
-            return null; // O lanzar excepción, según prefieras
+            return null; // O lanzar excepción
         }
 
         ClienteEntity cliente = clienteOpt.get();
