@@ -11,9 +11,4 @@ public class InicioController {
     public String mostrarInicio() {
         return "inicio";
     }
-
-    @GetMapping("/login")
-    public String mostrarLogin() {
-        return "login";
-    }
 }

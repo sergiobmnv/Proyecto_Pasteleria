@@ -30,6 +30,7 @@ public class ProductoServideImplement implements ProductoService{
         dto.setStock(entity.getStrock());
         dto.setCategoria(entity.getCategoria());
         return dto;
+        
     }
 
     private ProductoEntity convertirAProductoEntity (ProductoDTO dto) {

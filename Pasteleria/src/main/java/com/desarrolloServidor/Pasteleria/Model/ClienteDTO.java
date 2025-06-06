@@ -15,15 +15,17 @@ public class ClienteDTO {
 	private String telefono;
 	private Double precio_pedido;
 	private String observacion;
+	private Boolean esUsuario;
+	private Boolean esEmpleado;
 	
 	public ClienteDTO() {
 		
 	}
-
+	
 	public ClienteDTO(Integer id_cliente, String nombre, String apellidos, String direccion, String contrasenia,
 			LocalDate fechanac, String producto, String email, String telefono, Double precio_pedido,
-			String observacion) {
-		
+			String observacion, Boolean esUsuario, Boolean esEmpleado) {
+
 		this.id_cliente = id_cliente;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
@@ -35,10 +37,27 @@ public class ClienteDTO {
 		this.telefono = telefono;
 		this.precio_pedido = precio_pedido;
 		this.observacion = observacion;
+		this.esUsuario = esUsuario;
+		this.esEmpleado = esEmpleado;
 	}
 
-//Getters y Setters.
-	
+
+	public Boolean getEsUsuario() {
+		return esUsuario;
+	}
+
+	public void setEsUsuario(Boolean esUsuario) {
+		this.esUsuario = esUsuario;
+	}
+
+	public Boolean getEsEmpleado() {
+		return esEmpleado;
+	}
+
+	public void setEsEmpleado(Boolean esEmpleado) {
+		this.esEmpleado = esEmpleado;
+	}
+
 	public Integer getId_cliente() {
 		return id_cliente;
 	}

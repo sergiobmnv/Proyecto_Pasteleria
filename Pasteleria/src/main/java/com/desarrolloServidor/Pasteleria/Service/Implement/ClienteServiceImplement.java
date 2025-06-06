@@ -22,6 +22,12 @@ public class ClienteServiceImplement implements ClienteService {
     // GUARDAR cliente nuevo
     @Override
     public ClienteDTO guardarCliente(ClienteDTO dto) {
+
+        // ✅ Validación: al menos uno debe ser true
+        if (!dto.getEsUsuario() && !dto.getEsEmpleado()) {
+            throw new IllegalArgumentException("Debe seleccionar al menos una opción: Usuario o Empleado.");
+        }
+
         ClienteEntity cliente = new ClienteEntity();
 
         cliente.setNombre(dto.getNombre());
@@ -36,6 +42,8 @@ public class ClienteServiceImplement implements ClienteService {
             cliente.setPrecioPedido(BigDecimal.valueOf(dto.getPrecio_pedido()));
         }
         cliente.setObservaciones(dto.getObservacion());
+        cliente.setEsUsuario(dto.getEsUsuario());
+        cliente.setEsEmpleado(dto.getEsEmpleado());
 
         // Guardamos el cliente en la base de datos
         clienteRepository.save(cliente);
@@ -67,6 +75,8 @@ public class ClienteServiceImplement implements ClienteService {
             }
 
             dto.setObservacion(cliente.getObservaciones());
+            dto.setEsUsuario(cliente.isEsUsuario());
+            dto.setEsEmpleado(cliente.isEsEmpleado());
 
             listaDTO.add(dto);
         }
@@ -93,7 +103,6 @@ public class ClienteServiceImplement implements ClienteService {
         cliente.setEmail(clienteDTO.getEmail());
         cliente.setTelefono(clienteDTO.getTelefono());
 
-        // En caso de que el precio sea Null, no entraria en la funcion BigDecimal para que no de error
         if (clienteDTO.getPrecio_pedido() != null) {
             cliente.setPrecioPedido(BigDecimal.valueOf(clienteDTO.getPrecio_pedido()));
         } else {
@@ -101,6 +110,8 @@ public class ClienteServiceImplement implements ClienteService {
         }
 
         cliente.setObservaciones(clienteDTO.getObservacion());
+        cliente.setEsUsuario(clienteDTO.getEsUsuario());
+        cliente.setEsEmpleado(clienteDTO.getEsEmpleado());
 
         clienteRepository.save(cliente);
 
