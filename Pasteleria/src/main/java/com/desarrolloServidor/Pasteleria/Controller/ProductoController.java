@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.desarrolloServidor.Pasteleria.Entity.ClienteEntity;
 import com.desarrolloServidor.Pasteleria.Model.ProductoDTO;
 import com.desarrolloServidor.Pasteleria.Service.ProductoService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/productos")
@@ -20,34 +23,39 @@ public class ProductoController {
 
     @Autowired
     private ProductoService productoService;
-    
-    // Mostrar todos los productos
+
     @GetMapping
     public String listarProductos(Model model) {
         List<ProductoDTO> productos = productoService.obtenerTodos();
         model.addAttribute("productos", productos);
-        return "Productos/productos"; // Vista: productos.html
+        return "Productos/productos";
     }
 
-    // Mostrar formulario para crear nuevo producto
     @GetMapping("/nuevo")
     public String mostrarFormularioNuevoProducto(Model model) {
         model.addAttribute("producto", new ProductoDTO());
         return "Productos/formularioProductos";
     }
 
-    // Guardar o actualizar producto
     @PostMapping("/guardar")
-    public String guardarProducto(@ModelAttribute("producto") ProductoDTO productoDTO) {
+    public String guardarProducto(@ModelAttribute("producto") ProductoDTO productoDTO, HttpSession session) {
+        // Obtener el usuario logueado de la sesión
+        ClienteEntity usuarioLogueado = (ClienteEntity) session.getAttribute("usuarioLogueado");
+
+        if (usuarioLogueado == null) {
+            // Si el usuario no está logueado, redirigir a la página de login
+            return "redirect:/login";
+        }
+
         if (productoDTO.getId_producto() > 0) {
             productoService.actualizarProducto(productoDTO);
         } else {
             productoService.guardarProducto(productoDTO);
         }
+
         return "redirect:/productos";
     }
 
-    // Mostrar formulario para editar producto existente
     @GetMapping("/editar/{id}")
     public String mostrarFormularioEditarProducto(@PathVariable("id") int id, Model model) {
         ProductoDTO producto = productoService.obtenerPorId(id);
@@ -59,7 +67,6 @@ public class ProductoController {
         }
     }
 
-    // Eliminar producto
     @GetMapping("/eliminar/{id}")
     public String eliminarProducto(@PathVariable("id") int id) {
         productoService.eliminarProducto(id);

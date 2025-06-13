@@ -22,33 +22,38 @@ public class LoginController {
     @GetMapping("/login")
     public String mostrarLogin(Model model) {
         model.addAttribute("login", new LoginDTO());
-        return "Login/login";
+        return "Login/login";  // Asegúrate de que la ruta sea correcta
     }
 
     @PostMapping("/login")
     public String procesarLogin(@ModelAttribute("login") LoginDTO loginDTO, Model model, HttpSession session) {
+        // Buscar al cliente por email y contraseña
         ClienteEntity cliente = clienteRepository.findByEmailAndContrasenia(
                 loginDTO.getEmail(), loginDTO.getContrasenia()
         );
 
+        // Verificar si el cliente existe
         if (cliente != null) {
             session.setAttribute("usuarioLogueado", cliente);
-            // Redirige según el rol
-            if (Boolean.TRUE.equals(cliente.isEsEmpleado())) {
-                return "redirect:/empleado/home";
+
+            // Redirigir según el rol (empleado o cliente)
+            if (cliente.isEsEmpleado()) {
+                return "redirect:/empleado/home";  // Ruta para empleados
             } else {
-                return "redirect:/cliente/home";
+                return "redirect:/cliente/home";  // Ruta para clientes
             }
         } else {
+            // Si las credenciales son incorrectas, mostramos el error en la vista
             model.addAttribute("error", "Email o contraseña incorrectos");
-            return "login";
+            return "Login/login";  // Asegúrate de que la vista sea correcta
         }
     }
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
+        // Invalida la sesión para cerrar la sesión del usuario
         session.invalidate();
-        return "redirect:/login";
+        return "redirect:/login";  // Redirige de vuelta a la página de login
     }
 
 }

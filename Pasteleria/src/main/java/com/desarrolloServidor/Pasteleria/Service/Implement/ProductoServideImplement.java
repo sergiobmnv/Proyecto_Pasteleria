@@ -27,7 +27,7 @@ public class ProductoServideImplement implements ProductoService{
         dto.setNombre(entity.getNombre());
         dto.setDescripcion(entity.getDescripcion());
         dto.setPrecio(entity.getPrecio().doubleValue());
-        dto.setStock(entity.getStrock());
+        dto.setStock(entity.getStock());
         dto.setCategoria(entity.getCategoria());
         return dto;
         
@@ -43,7 +43,7 @@ public class ProductoServideImplement implements ProductoService{
         entity.setNombre(dto.getNombre());
         entity.setDescripcion(dto.getDescripcion());
         entity.setPrecio(BigDecimal.valueOf(dto.getPrecio()));
-        entity.setStrock(dto.getStock());
+        entity.setStock(dto.getStock());
         entity.setCategoria(dto.getCategoria());
 
         return entity;
@@ -86,7 +86,7 @@ public class ProductoServideImplement implements ProductoService{
             entityExistente.setNombre(productoDTO.getNombre());
             entityExistente.setDescripcion(productoDTO.getDescripcion());
             entityExistente.setPrecio(BigDecimal.valueOf(productoDTO.getPrecio()));
-            entityExistente.setStrock(productoDTO.getStock());
+            entityExistente.setStock(productoDTO.getStock());
             entityExistente.setCategoria(productoDTO.getCategoria());
 
             ProductoEntity actualizado = produtoRepository.save(entityExistente);

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Seleccionar Productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-4">Elige tus productos</h1>
+
+        <form th:action="@{/pedidos/guardar}" method="post">
+            <select name="productoId" required>
+                <option th:each="producto : ${pasteles}" th:value="${producto.idProducto}"
+                    th:text="${producto.nombre + ' - ' + producto.precio + ' €'}">
+                </option>
+            </select>
+
+            <input type="number" name="cantidad" min="1" value="1" required />
+
+            <button type="submit">Realizar pedido</button>
+        </form>
+
+
+    </div>
+</body>
+
+</html>

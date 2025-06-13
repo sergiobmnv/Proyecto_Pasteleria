@@ -13,8 +13,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.desarrolloServidor.Pasteleria.Entity.ClienteEntity;
+import com.desarrolloServidor.Pasteleria.Entity.PedidoEntity;
 import com.desarrolloServidor.Pasteleria.Model.ClienteDTO;
 import com.desarrolloServidor.Pasteleria.Service.ClienteService;
+import com.desarrolloServidor.Pasteleria.Service.PedidoService;
+
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 @RequestMapping("/clientes")
@@ -22,6 +28,9 @@ public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
+
+    @Autowired
+    private PedidoService pedidoService;
 
     // Mostrar lista de clientes.
     @GetMapping("/mostrar")
@@ -56,8 +65,8 @@ public class ClienteController {
             return "redirect:/clientes/mostrar";
         } catch (IllegalArgumentException e) {
             redirectAttrs.addFlashAttribute("errorRol", e.getMessage());
-            redirectAttrs.addFlashAttribute("cliente", clienteDTO); // volver a mostrar los datos que ya había
-            return "redirect:/clientes/registro"; // vuelve al formulario
+            redirectAttrs.addFlashAttribute("cliente", clienteDTO);
+            return "redirect:/clientes/registro";
         }
     }
 
@@ -68,4 +77,15 @@ public class ClienteController {
 
         return "redirect:/clientes/mostrar";
     }
+
+    @GetMapping("/home")
+    public String homeCliente(HttpSession session, Model model) {
+    ClienteEntity cliente = (ClienteEntity) session.getAttribute("usuarioLogueado");
+    model.addAttribute("cliente", cliente);
+
+    List<PedidoEntity> pedidos = pedidoService.obtenerPedidosPorCliente(cliente.getIdCliente());
+    model.addAttribute("pedidosActivos", pedidos);
+
+    return "Login/clienteHome";
+}
 }

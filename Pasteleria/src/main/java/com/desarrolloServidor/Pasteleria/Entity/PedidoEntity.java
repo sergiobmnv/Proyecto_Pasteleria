@@ -19,23 +19,22 @@ public class PedidoEntity {
     @Column(name = "ID_PEDIDO", nullable = false)
     private Integer idPedido;
 
-    @Column(name = "PENDIENTE", nullable = false, length = 45)
-    private String pendiente;
-
-    @Column(name = "ENTREGADO", nullable = false, length = 45)
-    private String entregado;
+    @Column(name = "ESTADO", nullable = false, length = 10)
+    private String estado;
 
     @ManyToOne
     @JoinColumn(name = "ID_PRODUCTO", nullable = false)
     private ProductoEntity producto;
 
     @ManyToOne
-    @JoinColumn(name = "ID_CLIENTE", nullable = false)
+    @JoinColumn(name = "ID_USUARIO", nullable = false)
     private ClienteEntity cliente;
 
-    
-// Getters y Setters.
-    
+	@Column(name = "CANTIDAD", nullable = false)
+    private int cantidad;
+
+
+
 	public Integer getIdPedido() {
 		return idPedido;
 	}
@@ -44,20 +43,12 @@ public class PedidoEntity {
 		this.idPedido = idPedido;
 	}
 
-	public String getPendiente() {
-		return pendiente;
+	public String getEstado() {
+		return estado;
 	}
 
-	public void setPendiente(String pendiente) {
-		this.pendiente = pendiente;
-	}
-
-	public String getEntregado() {
-		return entregado;
-	}
-
-	public void setEntregado(String entregado) {
-		this.entregado = entregado;
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 
 	public ProductoEntity getProducto() {
@@ -74,5 +65,13 @@ public class PedidoEntity {
 
 	public void setCliente(ClienteEntity cliente) {
 		this.cliente = cliente;
-	}   
+	}
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
 }

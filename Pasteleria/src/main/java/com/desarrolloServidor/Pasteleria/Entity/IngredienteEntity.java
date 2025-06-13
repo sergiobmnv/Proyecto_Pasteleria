@@ -1,12 +1,15 @@
 package com.desarrolloServidor.Pasteleria.Entity;
 
 import java.math.BigDecimal;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,6 +33,9 @@ public class IngredienteEntity {
 
     @Column(name = "FABRICANTE", nullable = false, length = 45)
     private String fabricante;
+
+	@OneToMany(mappedBy = "ingrediente", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<IngredienteProductoEntity> productosRelacionados;
 
     
 // Getters y Setters.
@@ -73,4 +79,12 @@ public class IngredienteEntity {
 	public void setFabricante(String fabricante) {
 		this.fabricante = fabricante;
 	}
+
+    public List getProductosRelacionados() {
+        return productosRelacionados;
+    }
+
+    public void setProductosRelacionados(List productosRelacionados) {
+        this.productosRelacionados = productosRelacionados;
+    }
 }

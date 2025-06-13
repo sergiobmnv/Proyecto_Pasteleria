@@ -1,0 +1,33 @@
+<hr class="my-5">
+
+<h2 class="text-center">Tus Pedidos Actuales</h2>
+
+<div th:if="${#lists.isEmpty(pedidosActivos)}" class="alert alert-info mt-3">
+    No tienes pedidos actualmente.
+</div>
+
+<table th:if="${not #lists.isEmpty(pedidosActivos)}" class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th># Pedido</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="pedido : ${pedidosActivos}">
+            <td th:text="${pedido.idPedido}">1</td>
+            <td th:text="${pedido.producto.nombre}">Pastel</td>
+            <td th:text="${pedido.cantidad}">2</td>
+            <td th:text="${pedido.estado}">Pendiente</td>
+            <td>
+                <form th:action="@{/clientes/cancelarPedido/{id}(id=${pedido.idPedido})}" method="post" th:if="${pedido.estado == 'Pendiente'}">
+                    <button type="submit" class="btn btn-sm btn-danger">Cancelar</button>
+                </form>
+                <span th:if="${pedido.estado != 'Pendiente'}" class="text-muted">No disponible</span>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,6 +1,5 @@
 package com.desarrolloServidor.Pasteleria.Service.Implement;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -35,13 +34,9 @@ public class ClienteServiceImplement implements ClienteService {
         cliente.setDireccion(dto.getDireccion());
         cliente.setContrasenia(dto.getContrasenia());
         cliente.setFechanac(dto.getFechanac());
-        cliente.setProducto(dto.getProducto());
         cliente.setEmail(dto.getEmail());
         cliente.setTelefono(dto.getTelefono());
-        if (dto.getPrecio_pedido() != null) {
-            cliente.setPrecioPedido(BigDecimal.valueOf(dto.getPrecio_pedido()));
-        }
-        cliente.setObservaciones(dto.getObservacion());
+        
         cliente.setEsUsuario(dto.getEsUsuario());
         cliente.setEsEmpleado(dto.getEsEmpleado());
 
@@ -66,15 +61,9 @@ public class ClienteServiceImplement implements ClienteService {
             dto.setDireccion(cliente.getDireccion());
             dto.setContrasenia(cliente.getContrasenia());
             dto.setFechanac(cliente.getFechaNac());
-            dto.setProducto(cliente.getProducto());
             dto.setEmail(cliente.getEmail());
             dto.setTelefono(cliente.getTelefono());
 
-            if (cliente.getPrecioPedido() != null) {
-                dto.setPrecio_pedido(cliente.getPrecioPedido().doubleValue());
-            }
-
-            dto.setObservacion(cliente.getObservaciones());
             dto.setEsUsuario(cliente.isEsUsuario());
             dto.setEsEmpleado(cliente.isEsEmpleado());
 
@@ -99,17 +88,9 @@ public class ClienteServiceImplement implements ClienteService {
         cliente.setDireccion(clienteDTO.getDireccion());
         cliente.setContrasenia(clienteDTO.getContrasenia());
         cliente.setFechanac(clienteDTO.getFechanac());
-        cliente.setProducto(clienteDTO.getProducto());
         cliente.setEmail(clienteDTO.getEmail());
         cliente.setTelefono(clienteDTO.getTelefono());
 
-        if (clienteDTO.getPrecio_pedido() != null) {
-            cliente.setPrecioPedido(BigDecimal.valueOf(clienteDTO.getPrecio_pedido()));
-        } else {
-            cliente.setPrecioPedido(null);
-        }
-
-        cliente.setObservaciones(clienteDTO.getObservacion());
         cliente.setEsUsuario(clienteDTO.getEsUsuario());
         cliente.setEsEmpleado(clienteDTO.getEsEmpleado());
 

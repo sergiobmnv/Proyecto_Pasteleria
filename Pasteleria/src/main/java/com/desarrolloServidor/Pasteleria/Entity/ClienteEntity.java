@@ -1,6 +1,5 @@
 package com.desarrolloServidor.Pasteleria.Entity;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
@@ -11,12 +10,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "Cliente")
+@Table(name = "Usuario")
 public class ClienteEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_CLIENTE", nullable = false)
+    @Column(name = "ID_USUARIO", nullable = false)
     private Integer idCliente;
 
     @Column(name = "NOMBRE", nullable = false, length = 45)
@@ -34,20 +33,11 @@ public class ClienteEntity {
     @Column(name = "FECHA_NAC", nullable = false)
     private LocalDate fechanac;
 
-    @Column(name = "PRODUCTO", length = 45)
-    private String producto;
-
     @Column(name = "EMAIL", nullable = false, length = 45)
     private String email;
 
     @Column(name = "TELEFONO", nullable = false, length = 45)
     private String telefono;
-
-    @Column(name = "PRECIO_PEDIDO", precision = 8, scale = 2)
-    private BigDecimal precioPedido;
-
-    @Column(name = "OBSERVACIONES", length = 45)
-    private String observaciones;
 
     @Column(name = "ES_USUARIO", nullable = false)
     private boolean esUsuario;
@@ -104,14 +94,6 @@ public class ClienteEntity {
         this.fechanac = fechanac;
     }
 
-    public String getProducto() {
-        return producto;
-    }
-
-    public void setProducto(String producto) {
-        this.producto = producto;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -126,22 +108,6 @@ public class ClienteEntity {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public BigDecimal getPrecioPedido() {
-        return precioPedido;
-    }
-
-    public void setPrecioPedido(BigDecimal precioPedido) {
-        this.precioPedido = precioPedido;
-    }
-
-    public String getObservaciones() {
-        return observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
     }
 
     public LocalDate getFechanac() {
